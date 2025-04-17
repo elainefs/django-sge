@@ -7,6 +7,8 @@ from django.views.generic import (
     UpdateView,
 )
 
+from brands.models import Brand
+from categories.models import Category
 from products.forms import ProductForm
 from products.models import Product
 
@@ -20,11 +22,30 @@ class ProductListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         title = self.request.GET.get("title")
+        serie_number = self.request.GET.get("serie_number")
+        category = self.request.GET.get("category")
+        brand = self.request.GET.get("brand")
 
         if title:
             queryset = queryset.filter(title__icontains=title)
 
+        if category:
+            queryset = queryset.filter(category__id=category)
+
+        if brand:
+            queryset = queryset.filter(brand__id=brand)
+
+        if serie_number:
+            queryset = queryset.filter(serie_number__icontains=serie_number)
+
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.all()
+        context["brands"] = Brand.objects.all()
+
+        return context
 
 
 class ProductCreateView(CreateView):
