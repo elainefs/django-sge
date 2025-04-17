@@ -4,6 +4,10 @@
 
 {% block content %}
 
+{% include "components/_product_metrics.html" %}
+
+<br />
+
 <div class="row mb-3">
   <div class="col-md-6">
     <form method="GET" action="{% url 'product_list' %}">
