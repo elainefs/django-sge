@@ -1,10 +1,12 @@
 from django.shortcuts import render
 
-from config.metrics import get_product_metrics
+from config.metrics import get_product_metrics, get_sales_metrics
 
 
 def home(request):
     product_metrics = get_product_metrics()
-    context = {"product_metrics": product_metrics}
+    sales_metrics = get_sales_metrics()
+
+    context = {"product_metrics": product_metrics, "sales_metrics": sales_metrics}
 
     return render(request, "home.html", context)

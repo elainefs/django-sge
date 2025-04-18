@@ -9,10 +9,10 @@ from django.views.generic import (
 
 from brands.models import Brand
 from categories.models import Category
+from config.metrics import get_product_metrics
 from products.forms import ProductForm
 from products.models import Product
 
-from config.metrics import get_product_metrics
 
 class ProductListView(ListView):
     model = Product
