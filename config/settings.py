@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_framework_simplejwt",
+    "authentication",
     "brands",
     "categories",
     "suppliers",
@@ -106,6 +109,23 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+# Simple JWT
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.DjangoModelPermissions",
+    ),
+}
 
 
 # Internationalization
