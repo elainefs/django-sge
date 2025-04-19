@@ -7,12 +7,14 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from brands.models import Brand
 from categories.models import Category
 from config.metrics import get_product_metrics
 from products.forms import ProductForm
 from products.models import Product
+from products.serializers import ProductSerializer
 
 
 class ProductListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -79,3 +81,13 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
     template_name = "product_delete.html"
     success_url = reverse_lazy("product_list")
     permission_required = "products.delete_product"
+
+
+class ProductCreateListAPIView(ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer

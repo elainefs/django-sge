@@ -7,9 +7,11 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from categories.forms import CategoryForm
 from categories.models import Category
+from categories.serializers import CategorySerializer
 
 
 class CategoryListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -56,3 +58,13 @@ class CategoryDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView
     template_name = "category_delete.html"
     success_url = reverse_lazy("category_list")
     permission_required = "categories.delete_category"
+
+
+class CategoryCreateListAPIView(ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class CategoryRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

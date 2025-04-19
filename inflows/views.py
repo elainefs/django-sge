@@ -5,9 +5,11 @@ from django.views.generic import (
     DetailView,
     ListView,
 )
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView
 
 from inflows.forms import InflowForm
 from inflows.models import Inflow
+from inflows.serializers import InflowSerializer
 
 
 class InflowListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -39,3 +41,13 @@ class InflowDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Inflow
     template_name = "inflow_detail.html"
     permission_required = "inflows.view_inflow"
+
+
+class InflowCreateListAPIView(ListCreateAPIView):
+    queryset = Inflow.objects.all()
+    serializer_class = InflowSerializer
+
+
+class InflowRetrieveAPIView(RetrieveAPIView):
+    queryset = Inflow.objects.all()
+    serializer_class = InflowSerializer

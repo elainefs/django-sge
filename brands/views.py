@@ -7,9 +7,11 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from brands.forms import BrandForm
 from brands.models import Brand
+from brands.serializers import BrandSerializer
 
 
 class BrandListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
@@ -56,3 +58,13 @@ class BrandDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     template_name = "brand_delete.html"
     success_url = reverse_lazy("brand_list")
     permission_required = "brands.delete_brand"
+
+
+class BrandCreateListAPIView(ListCreateAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
+
+
+class BrandRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
