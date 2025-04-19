@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -11,7 +12,7 @@ from brands.forms import BrandForm
 from brands.models import Brand
 
 
-class BrandListView(ListView):
+class BrandListView(LoginRequiredMixin, ListView):
     model = Brand
     template_name = "brand_list.html"
     context_object_name = "brands"
@@ -27,26 +28,26 @@ class BrandListView(ListView):
         return queryset
 
 
-class BrandCreateView(CreateView):
+class BrandCreateView(LoginRequiredMixin, CreateView):
     model = Brand
     template_name = "brand_create.html"
     form_class = BrandForm
     success_url = reverse_lazy("brand_list")
 
 
-class BrandDetailView(DetailView):
+class BrandDetailView(LoginRequiredMixin, DetailView):
     model = Brand
     template_name = "brand_detail.html"
 
 
-class BrandUpdateView(UpdateView):
+class BrandUpdateView(LoginRequiredMixin, UpdateView):
     model = Brand
     template_name = "brand_update.html"
     form_class = BrandForm
     success_url = reverse_lazy("brand_list")
 
 
-class BrandDeleteView(DeleteView):
+class BrandDeleteView(LoginRequiredMixin, DeleteView):
     model = Brand
     template_name = "brand_delete.html"
     success_url = reverse_lazy("brand_list")
