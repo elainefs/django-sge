@@ -51,7 +51,7 @@ pip install -r requirements.txt
 
 4. Crie um arquivo `.env` na raiz do projeto
 
-O arquivo `.env-exemple` é um modelo de como o seu arquivo `.env` deve ser.
+O arquivo `.env-example` é um modelo de como o seu arquivo `.env` deve ser.
 
 Para gerar uma nova `SECRET_KEY`, a partir da raiz do projeto, use o seguinte comando no terminal:
 
