@@ -49,19 +49,31 @@ source .venv/bin/activate  # Para Windows use: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Execute as migrações no banco de dados
+4. Crie um arquivo `.env` na raiz do projeto
+
+O arquivo `.env-exemple` é um modelo de como o seu arquivo `.env` deve ser.
+
+Para gerar uma nova `SECRET_KEY`, a partir da raiz do projeto, use o seguinte comando no terminal:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Edite as demais informações conforme suas preferências.
+
+5. Execute as migrações no banco de dados
 
 ```bash
 python3 manage.py migrate
 ```
 
-5. Crie um super usuário
+6. Crie um super usuário
 
 ```bash
 python3 manage.py createsuperuser
 ```
 
-6. Execute a aplicação
+7. Execute a aplicação
 
 ```bash
 python3 manage.py runserver
