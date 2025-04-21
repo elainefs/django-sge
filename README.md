@@ -1,4 +1,15 @@
-# Sistema de Gerenciamento de Estoque - SGE
+<div align="center">
+    <h1>Sistema de Gerenciamento de Estoque - SGE</h1>
+    <img src="https://img.shields.io/github/repo-size/elainefs/django-sge">
+    <img src="https://img.shields.io/github/languages/top/elainefs/django-sge"> 
+    <img src="https://img.shields.io/github/last-commit/elainefs/django-sge?color=blue">
+    <img src="https://img.shields.io/github/license/elainefs/django-sge.svg?color=blue">
+    <br><br>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">
+    <img src="https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white">
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white">
+    <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white">
+</div>
 
 ## 📘 Sobre
 
@@ -13,7 +24,7 @@ A aplicação possui uma interface web para manipulação de informações, bem 
 - Python
 - Django
 - Django REST framework
-- SQLite
+- PostgreSQL
 
 ## ✅ Funcionalidade
 
@@ -25,6 +36,44 @@ A aplicação possui uma interface web para manipulação de informações, bem 
 - [x] Listagem, criação, atualização e deleção de entradas e saídas de produtos.
 
 ## ⚙️ Como usar
+
+### Executar a aplicação via Docker
+
+Certifique-se de ter o Docker e Docker Compose instalados, em seguida siga os seguintes passos:
+
+1. Clone o repositório
+
+```bash
+git clone https://github.com/elainefs/django-sge.git
+
+cd django-sge
+```
+
+2. Crie um arquivo `.env` na raiz do projeto
+
+O arquivo `.env-example` é um modelo de como o seu arquivo `.env` deve ser.
+
+Para gerar uma nova `SECRET_KEY`, a partir da raiz do projeto, use o seguinte comando no terminal:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Adicione a sua `SECRET_KEY` a sua `.env` e edite as demais informações conforme suas preferências.
+
+3. Execute o Docker Compose
+
+```bash
+docker compose up --build -d
+```
+
+4. Crie um super usuário
+
+```bash
+docker exec -it sge_web python manage.py createsuperuser
+```
+
+### Executar a aplicação localmente sem Docker
 
 Para executar essa aplicação siga os seguintes passos:
 
@@ -40,6 +89,7 @@ cd django-sge
 
 ```bash
 python3 -m venv .venv # Para Windows use: python -m venv .venv
+
 source .venv/bin/activate  # Para Windows use: .venv\Scripts\activate
 ```
 
@@ -59,7 +109,7 @@ Para gerar uma nova `SECRET_KEY`, a partir da raiz do projeto, use o seguinte co
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 
-Edite as demais informações conforme suas preferências.
+Adicione a sua `SECRET_KEY` a sua `.env` e edite as demais informações conforme suas preferências.
 
 5. Execute as migrações no banco de dados
 
