@@ -15,7 +15,7 @@
 
 Aplicação FullStack desenvolvida usando Djanto e Djanto REST framework para fazer o gerenciamento de estoque.
 
-A aplicação possui uma interface web para manipulação de informações, bem como uma API RESTful.
+A aplicação possui uma interface web para manipulação de informações, bem como uma API RESTful, além disso, há integração com uma [aplicação de notificações](https://github.com/elainefs/django-sge-notify) para o envio de notificações por e-mail e WhatsApp via API do [CallMeBot](https://www.callmebot.com/).
 
 ![SGE - Dashboard](sge-dashboard.png)
 
@@ -29,6 +29,7 @@ A aplicação possui uma interface web para manipulação de informações, bem 
 ## ✅ Funcionalidade
 
 - [x] Autenticação com JWT para proteger os endpoints da API.
+- [x] Integração via Webhook para disparo de notificações de movimentação de estoque.
 - [x] Listagem, criação, atualização e deleção de produtos.
 - [x] Listagem, criação, atualização e deleção de marcas de produtos.
 - [x] Listagem, criação, atualização e deleção de categorias de produtos.
