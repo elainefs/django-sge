@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "products",
     "inflows",
     "outflows",
+    "ai",
 ]
 
 MIDDLEWARE = [
@@ -178,3 +179,6 @@ LOGGING = {
 }
 
 NOTIFICATION_URL = env("NOTIFICATION_URL")
+
+OPENAI_API_KEY = env("OPENAI_API_KEY")
+OPENAI_MODEL = env("OPENAI_MODEL")
