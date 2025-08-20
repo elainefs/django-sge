@@ -15,7 +15,9 @@
 
 Aplicação FullStack desenvolvida usando Djanto e Djanto REST framework para fazer o gerenciamento de estoque.
 
-A aplicação possui uma interface web para manipulação de informações, bem como uma API RESTful, além disso, há integração com uma [aplicação de notificações](https://github.com/elainefs/django-sge-notify) para o envio de notificações por e-mail e WhatsApp via API do [CallMeBot](https://www.callmebot.com/).
+A aplicação possui uma interface web para manipulação de informações, bem como uma API RESTful, além disso, há integração com uma [aplicação de notificações](https://github.com/elainefs/django-sge-notify) para o envio de notificações por e-mail e WhatsApp via API do [CallMeBot](https://www.callmebot.com/). 
+
+Além disso, utiliza a IA generativa da OpenAI para fornecer de insights e recomendações sobre os produtos do estoque.
 
 ![SGE - Dashboard](sge-dashboard.png)
 
@@ -61,6 +63,10 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 ```
 
 Adicione a sua `SECRET_KEY` a sua `.env` e edite as demais informações conforme suas preferências.
+
+Forneça a url do sistema de notificações em `NOTIFICATION_URL`.
+
+Para usar o recurso de IA é necessário fornecer o modelo e a chave de API através das variáveis `OPENAI_API_KEY` e `OPENAI_MODEL`.
 
 3. Execute o Docker Compose
 
@@ -111,6 +117,10 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 ```
 
 Adicione a sua `SECRET_KEY` a sua `.env` e edite as demais informações conforme suas preferências.
+
+Forneça a url do sistema de notificações em `NOTIFICATION_URL`.
+
+Para usar o recurso de IA é necessário fornecer o modelo e a chave de API através das variáveis `OPENAI_API_KEY` e `OPENAI_MODEL`.
 
 5. Execute as migrações no banco de dados
 
