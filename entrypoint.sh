@@ -15,4 +15,4 @@ echo "Load initial data"
 python manage.py loaddata config/fixtures/initial_user.json
 
 echo "Run Server"
-exec python manage.py runserver 0.0.0.0:8000
+gunicorn --bind 0.0.0.0:8000 --workers=4 config.wsgi --timeout 300
