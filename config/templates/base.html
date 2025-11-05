@@ -25,6 +25,11 @@
             {% endif %}
             <div class="col py-3">
                 <div class="container mt-4">
+                {% if user.is_authenticated %}
+                    <div style="background: #cc3c29ff; color: white; padding: 10px; text-align: center; margin-bottom: 5px; border-radius: 5px;"> 
+                        ⚠️ AMBIENTE DEMO. Dados deletados a cada 30 minutos.
+                    </div>
+                {% endif %}
                     <main>
                         {% block content %}{% endblock %}
                     </main>
