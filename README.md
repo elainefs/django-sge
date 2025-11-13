@@ -19,6 +19,10 @@ A aplicação possui uma interface web para manipulação de informações, bem 
 
 Além disso, utiliza a IA generativa da OpenAI para fornecer de insights e recomendações sobre os produtos do estoque.
 
+🌐 **Acesse:** [https://django-sge.onrender.com](https://django-sge.onrender.com)
+
+⏰ **Nota:** Como esta é uma aplicação de demonstração hospedada no plano gratuito do Render, o primeiro acesso após período de inatividade pode levar 30-60 segundos para carregar, exibindo a tela padrão de carregamento do Render. Acessos subsequentes são instantâneos!
+
 ![SGE - Dashboard](sge-dashboard.png)
 
 ## 💻️ Tecnologias
