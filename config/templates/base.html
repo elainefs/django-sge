@@ -44,4 +44,9 @@
         </div>
         {% include "components/_footer.html" %}
     </body>
+    <script>
+        let currentYear = document.getElementById("currentYear");
+        let setYear = new Date();
+        currentYear.innerHTML = setYear.getFullYear();
+    </script>
 </html>
