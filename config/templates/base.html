@@ -29,21 +29,28 @@
         <link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
     </head>
     <body>
-        {% include "components/_header.html" %}
         <div class="container-fluid">
-            {% if user.is_authenticated %}
-                {% include "components/_sidebar.html" %}
-            {% endif %}
-            <div class="col py-3">
-                <div class="container mt-4">
+            <div class="row flex-nowrap">
                 {% if user.is_authenticated %}
-                    <div style="background: #cc3c29ff; color: white; padding: 10px; text-align: center; margin-bottom: 5px; border-radius: 5px;"> 
-                        ⚠️ AMBIENTE DEMO. Dados deletados a cada 30 minutos.
-                    </div>
+                    {% include "components/_sidebar.html" %}
                 {% endif %}
-                    <main>
-                        {% block content %}{% endblock %}
-                    </main>
+                <div class="col">
+                    <div class="container-fluid mt-4">
+                        {% if user.is_authenticated %}
+                            <div style="background: #cc3c29ff; color: white; padding: 10px; text-align: center; margin-bottom: 5px; border-radius: 5px;"> 
+                                ⚠️ AMBIENTE DEMO. Dados deletados a cada 30 minutos.
+                            </div>
+                        {% endif %}
+                        <main>
+                            <div class="d-flex">
+                                <button class="btn d-md-none ps-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+                                    <i class="bi bi-list fs-4"></i>
+                                </button>
+                                {% include "components/_header.html" %}
+                            </div>
+                            {% block content %}{% endblock %}
+                        </main>
+                    </div>
                 </div>
             </div>
         </div>
