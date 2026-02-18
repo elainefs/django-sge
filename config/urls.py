@@ -17,3 +17,5 @@ urlpatterns = [
     path("outflows/", include("outflows.urls")),
     path("products/", include("products.urls")),
 ]
+
+urlpatterns.append(path("api/", include("config.docs.urls")))
