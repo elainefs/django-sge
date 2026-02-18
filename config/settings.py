@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    "drf_yasg",
     "authentication",
     "brands",
     "categories",
@@ -191,6 +192,20 @@ LOGGING = {
             "propagate": True,
         },
     },
+}
+
+# Swagger
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "Digite: Bearer [seu_token]",
+        },
+    },
+    "USE_SESSION_AUTH": False,
 }
 
 NOTIFICATION_URL = env("NOTIFICATION_URL")
