@@ -13,7 +13,7 @@
 
 ## 📘 Sobre
 
-Aplicação FullStack desenvolvida usando Djanto e Djanto REST framework para fazer o gerenciamento de estoque.
+Aplicação FullStack desenvolvida usando Django e Django REST framework para fazer o gerenciamento de estoque.
 
 A aplicação possui uma interface web para manipulação de informações, bem como uma API RESTful, além disso, há integração com uma [aplicação de notificações](https://github.com/elainefs/django-sge-notify) para o envio de notificações por e-mail e WhatsApp via API do [CallMeBot](https://www.callmebot.com/). 
 
@@ -148,7 +148,11 @@ A aplicação estará disponível em `http://localhost:8000`.
 
 O gerenciamento pode ser feito através da interface do Django Admin em: `http://localhost:8000/admin/`
 
-Você pode interagir com a API utilizando ferramentas como Postman, Insomnia, entre outras.
+Para interagir com a API você pode usar o Swagger UI ou outra aplicação de requisições HTTP de sua preferência, como Postman, Insomnia, entre outras.
+
+- **Swagger UI**: Acesse a documentação interativa da API em `http://0.0.0.0:8000/api/swagger/` ou `http://localhost:8000/api/swagger/`
+
+- **Redoc**: Você também pode ver a descrição completa dos endpoints através da documentação pelo Redoc em `http://0.0.0.0:8000/api/redoc/` ou `http://localhost:8000/api/redoc/`
 
 ## 🔗 Endpoints da API
 
